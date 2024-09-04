@@ -22,11 +22,11 @@ import styles from './ArticleParamsForm.module.scss';
 import { FormEvent, MutableRefObject, useState } from 'react';
 import clsx from 'clsx';
 
-type TAppState = {
-	setAppState: (params: ArticleStateType) => void;
+type TArticleState = {
+	setArticleState: (params: ArticleStateType) => void;
 };
 
-export const ArticleParamsForm = ({ setAppState }: TAppState) => {
+export const ArticleParamsForm = ({ setArticleState }: TArticleState) => {
 	const [formIsOpen, setFormIsOpen] = useState<boolean>(false);
 	const [formState, setFormState] =
 		useState<ArticleStateType>(defaultArticleState);
@@ -47,13 +47,13 @@ export const ArticleParamsForm = ({ setAppState }: TAppState) => {
 		event.preventDefault();
 
 		setFormState(defaultArticleState);
-		setAppState(defaultArticleState);
+		setArticleState(defaultArticleState);
 	};
 
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 
-		setAppState(formState);
+		setArticleState(formState);
 		setFormIsOpen(false);
 	};
 
